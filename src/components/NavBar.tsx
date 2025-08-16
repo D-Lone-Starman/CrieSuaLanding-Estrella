@@ -1,19 +1,37 @@
+"use client";
 
-'use client';
+import React from "react";
+import CartWidget from "./CartWidget";
 
-import CartWidget from './CartWidget';
-
-export default function NavBar() {
+const NavBar: React.FC = () => {
   return (
-    <nav style={{ display: 'flex', justifyContent: 'space-between', padding: '1rem', background: '#fff3e0', alignItems: 'center' }}>
-      <h1 style={{ margin: 0 }}>BookVerse</h1>
-      <div style={{ display: 'flex', gap: '1rem' }}>
-        <a href="/">Home</a>
-        <a href="/catalog">Catalog</a>
-        <a href="/contact">Contact</a>
+    <header
+      style={{
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "space-between",
+        padding: "12px 20px",
+        borderBottom: "1px solid #eee",
+        background: "#fafafa",
+      }}
+    >
+      <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
+        <div style={{ fontWeight: 800, fontSize: 18 }}>MinhaLoja</div>
+        <nav>
+          <a href="#" style={{ marginRight: 12 }}>
+            Home
+          </a>
+          <a href="#" style={{ marginRight: 12 }}>
+            Produtos
+          </a>
+          <a href="#">Contato</a>
+        </nav>
       </div>
-      <CartWidget />
-    </nav>
-  );
-}
 
+      {/* CartWidget está DENTRO do NavBar (requisito) */}
+      <CartWidget />
+    </header>
+  );
+};
+
+export default NavBar;
